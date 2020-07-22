@@ -42,12 +42,11 @@ export default {
   text-align: center;
 }
 .feature_item {
-  flex: 1;
+ flex: 0 0 25%;
 }
 .feature_item img {
   width: 70px;
   height: 70px;
   padding: 5px 5px;
-  margin-right: 10px;
 }
 </style>

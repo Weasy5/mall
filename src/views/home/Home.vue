@@ -5,10 +5,10 @@
           购物街
       </template>
     </nav-bar>
-    <home-swiper :swiperList="swiperList"></home-swiper>
+    <home-swiper :swiperList="swiperList" @swiperImgLoaded='swiperImgLoaded'></home-swiper>
     <home-recommend-view :recommendsList="recommendsList"></home-recommend-view>
     <feature-view :featureList="featureList"></feature-view>
-    <tab-control :titles="['流行','新款','精选']" class="tab_control"></tab-control>
+    <tab-control :titles="['流行','新款','精选']" class="tab_control" ref="tabControl"></tab-control>
     <ul>
       <li>111111</li>
       <li>111111</li>
@@ -22,7 +22,38 @@
       <li>111111</li>
       <li>111111</li>
       <li>111111</li>
-
+       <li>111111</li>
+      <li>111111</li>
+      <li>111111</li>
+      <li>111111</li>
+      <li>111111</li>
+      <li>111111</li>
+      <li>111111</li>
+      <li>111111</li>
+      <li>111111</li>
+      <li>111111</li>
+      <li>111111</li>
+      <li>111111</li>
+       <li>111111</li>
+      <li>111111</li>
+      <li>111111</li>
+      <li>111111</li>
+      <li>111111</li>
+      <li>111111</li>
+      <li>111111</li>
+      <li>111111</li>
+      <li>111111</li>
+      <li>111111</li>
+      <li>111111</li>
+      <li>111111</li>
+      <li>111111</li>
+      <li>111111</li>
+      <li>111111</li>
+      <li>111111</li>
+      <li>111111</li>
+      <li>111111</li>
+      <li>111111</li>
+      <li>111111</li>
     </ul>
   </div>
 </template>
@@ -34,7 +65,7 @@ import HomeRecommendView from './child-coms/HomeRecommendView'
 import FeatureView from './child-coms/FeatureView'
 import TabControl from 'components/content/tabControl/TabControl'
 
-import { getHomeMultiData , getHomeGoods} from '../../network/home'
+import { getHomeMultiData } from '../../network/home'
 
 export default {
   name:"Home",
@@ -69,7 +100,9 @@ export default {
   },
   created() {
     this.getHomeMultiData()
-    this.getGoods()
+  },
+  mounted(){
+    this.swiperImgLoaded()
   },
   methods:{
     //获取首页数据
@@ -81,12 +114,10 @@ export default {
 
       })
     },
-    getGoods(){
-      getHomeGoods().then(res =>{
-        console.log(res)
-        this.goods.pop.list = res.message[15]
-        console.log(this.goods.pop)
-      })
+
+    // 获取tabcontrol组件的位置
+    swiperImgLoaded(){
+      console.log('tabcontrol',this.$refs.tabControl.$el.offsetTop)
     }
   }
 }
@@ -94,7 +125,7 @@ export default {
 
 <style scoped>
 .home {
-  /* padding-top: 44px; */
+  padding-top: 44px;
   height: 100vh;
   position: relative;
 }
@@ -105,7 +136,7 @@ export default {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 9;
+  z-index: 10;
 }
 /* 让tabcontrol黏性定位 */
 .tab_control {

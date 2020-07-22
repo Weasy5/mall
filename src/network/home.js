@@ -15,3 +15,15 @@ export function getHomeGoods (){
     url:'https://api-hmugo-web.itheima.net/api/public/v1/categories'
   })
 }
+
+// 商品详情数据
+export function getGoodList(cat_id,pagenum,pagesize){
+  return request({
+    url:'https://api-hmugo-web.itheima.net/api/public/v1/goods/search',
+    params: {
+      cat_id,
+      pagenum,
+      pagesize
+    }
+  })
+}
