@@ -17,5 +17,7 @@ export default {
 
 <style>
 @import 'assets/style/base.css';
-
+#app {
+  overflow-x: hidden;
+}
 </style>

@@ -86,10 +86,11 @@ export default {
 .category_content {
   display: flex;
   flex-direction: row;
-
 }
 .category_content .category_nav {
   flex: 0 0 30%;
+  height: 100vh;
+  overflow: scroll;
 }
 .category_nav li{
   text-align: center;
@@ -104,6 +105,8 @@ export default {
 .category_detail {
   flex: 1 1;
   text-align: center;
+  height: 100vh;
+  overflow: scroll;
 }
 .category_detail .section1 {
   display: flex;
